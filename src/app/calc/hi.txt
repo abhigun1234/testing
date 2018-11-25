@@ -1,0 +1,17 @@
+In RxJS 5, you were probably writing:
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+const squares$: Observable<number> = Observable.of(1, 2).map(n => n * n);
+RxJS 5.5 introduced the pipeable operators:
+
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { map } from 'rxjs/operators';
+const squares$: Observable<number> = of(1, 2).pipe( map(n => n * n));
+And RxJS 6.0 changed the imports to:
+
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+const squares$: Observable<number> = of(1, 2).pipe(map(n => n * n));
